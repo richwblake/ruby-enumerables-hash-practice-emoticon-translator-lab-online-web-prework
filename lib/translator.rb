@@ -5,7 +5,8 @@ def load_library( file_path )
   emoticon_data = { "get_meaning" => {}, "get_emoticon" => {} }
 
   lib.each_pair { |emotion, face_array|
-    emoticon_data["get_meaning"][face_array.pop] = emotion
+    emoticon_data["get_meaning"][face_array.last] = emotion
+    emoticon_data["get_emoticon"][face_array.first] = face_array.last
   }
 
   emoticon_data
