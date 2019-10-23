@@ -12,7 +12,7 @@ def load_library( file_path )
   emoticon_data
 end
 
-def get_japanese_emoticon( emo, file_path )
+def get_japanese_emoticon( file_path, emo )
   lib = load_library( file_path )
   lib["get_emoticon"].each_pair { |emoticon, meaning|
     if emoticon == emo
@@ -22,7 +22,7 @@ def get_japanese_emoticon( emo, file_path )
   nil
 end
 
-def get_english_meaning( emo, file_path )
+def get_english_meaning( file_path, emo )
   lib = load_library( file_path )
   lib["get_meaning"].each_pair { |emoticon, meaning|
     if emoticon == emo
