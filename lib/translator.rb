@@ -29,5 +29,5 @@ def get_english_meaning( file_path, emo )
       return meaning
     end
   }
-  nil
+  "Sorry, that emoticon was not found"
 end
