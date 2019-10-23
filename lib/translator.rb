@@ -27,7 +27,7 @@ def get_english_meaning( emo, file_path )
   lib = load_library
   lib.each_pair { |emotion, face_array|
     face_array.each { |face_string|
-      if emo2 == face_string
+      if emo == face_string
         return face_array.pop
       end
     }
