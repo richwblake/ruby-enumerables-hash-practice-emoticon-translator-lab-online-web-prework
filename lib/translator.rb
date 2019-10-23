@@ -1,13 +1,34 @@
-# require modules here
+require 'yaml'
 
-def load_library
-  # code goes here
+def load_library( file_path )
+  lib = YAML.load_file( file_path )
+  emoticon_data = { "get_meaning" => {}, "get_emoticon" => {} }
+
+  lib.each_pair { |emotion, face_array|
+    emoticon_data["get_meaning"][face_array.pop] = emotion
+  }
+
+  emoticon_data
 end
 
-def get_japanese_emoticon
-  # code goes here
+def get_japanese_emoticon( emo )
+  lib = load_library
+  lib.each_pair { |emotion, face_array|
+    face_array.each { |face_string|
+      if emo == face_string
+        return face_array.shift
+      end
+    }
+  }
 end
 
-def get_english_meaning
-  # code goes here
+def get_english_meaning( emo2 )
+  lib = load_library
+  lib.each_pair { |emotion, face_array|
+    face_array.each { |face_string|
+      if emo2 == face_string
+        return face_array.pop
+      end
+    }
+  }
 end
