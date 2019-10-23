@@ -23,7 +23,7 @@ def get_japanese_emoticon( emo, file_path )
   }
 end
 
-def get_english_meaning( emo2 )
+def get_english_meaning( emo, file_path )
   lib = load_library
   lib.each_pair { |emotion, face_array|
     face_array.each { |face_string|
