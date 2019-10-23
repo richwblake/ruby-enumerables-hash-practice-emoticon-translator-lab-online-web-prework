@@ -12,7 +12,7 @@ def load_library( file_path )
   emoticon_data
 end
 
-def get_japanese_emoticon( emo )
+def get_japanese_emoticon( emo, file_path )
   lib = load_library
   lib.each_pair { |emotion, face_array|
     face_array.each { |face_string|
