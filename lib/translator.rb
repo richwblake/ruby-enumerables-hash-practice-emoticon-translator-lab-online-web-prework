@@ -13,23 +13,21 @@ def load_library( file_path )
 end
 
 def get_japanese_emoticon( emo, file_path )
-  lib = load_library
-  lib.each_pair { |emotion, face_array|
-    face_array.each { |face_string|
-      if emo == face_string
-        return face_array.shift
-      end
-    }
+  lib = load_library( file_path )
+  lib["get_emoticon"].each_pair { |emoticon, meaning|
+    if emoticon == emo
+      return meaning
+    end
   }
+  nil
 end
 
 def get_english_meaning( emo, file_path )
-  lib = load_library
-  lib.each_pair { |emotion, face_array|
-    face_array.each { |face_string|
-      if emo == face_string
-        return face_array.pop
-      end
-    }
+  lib = load_library( file_path )
+  lib["get_meaning"].each_pair { |emoticon, meaning|
+    if emoticon == emo
+      return meaning
+    end
   }
+  nil
 end
